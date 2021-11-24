@@ -31,7 +31,7 @@ parser.add_argument('--train_url', type=str, default=r'../models',
                     help=' path of model')
 # Protect the arguments which are not parsed.
 args, unparsed = parser.parse_known_args()
-# 超参数
+
 BATCH_SIZE = 1
 EPOCH = 1
 IS_TEST_RCN = True
@@ -73,7 +73,7 @@ u1, u2, u3, u4 = '', '', '', ''
 
 
 def hooku1(module, input, output):
-    '''获取某层'''
+   
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -82,7 +82,7 @@ def hooku1(module, input, output):
 
 
 def hooku2(module, input, output):
-    '''获取某层'''
+    
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -91,7 +91,7 @@ def hooku2(module, input, output):
 
 
 def hooku3(module, input, output):
-    '''获取某层'''
+    
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -100,7 +100,7 @@ def hooku3(module, input, output):
 
 
 def hooku4(module, input, output):
-    '''获取某层'''
+   
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
