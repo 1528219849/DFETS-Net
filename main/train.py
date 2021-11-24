@@ -56,7 +56,7 @@ parser.add_argument('--train_url', type=str, default=r'../models',
 # Protect the arguments which are not parsed.
 args, unparsed = parser.parse_known_args()
 
-# 超参数
+
 BATCH_SIZE = 10
 EPOCH = 101
 start_lr = 1e-1
@@ -75,13 +75,13 @@ train_img = Dataset(root=args.data_url, train_transform=train_transform, mean=Tr
 train_loader = torch.utils.data.DataLoader(train_img, batch_size=BATCH_SIZE, pin_memory=True, num_workers=8,
                                            shuffle=True)
 
-# 判断gpu是否可用
+
 if torch.cuda.is_available():
     device = 'cuda'
 else:
     device = 'cpu'
 device = torch.device(device)
-# 训练有分训练纹理和训练边缘
+
 
 if IS_TRAIN_CEN:
     C = CEN(n_channels=4, n_classes=1, bilinear=True).to(device)
@@ -93,8 +93,7 @@ else:
     C = CEN(n_channels=4, n_classes=1, bilinear=True).to(device)
     F = FEN(n_channels=4, n_classes=angle_num + 3, bilinear=True).to(device)
     R = RCN().to(device)
-# 这里是拿先通过自己的数据集初步训练的网络作为预训练网络
-# pre_train    TNET预训练的目的是否是让模型更好的收敛，因为这样端对端比较难收敛
+
 C.load_state_dict(torch.load(r'../models/CEN.pth'))
 F.load_state_dict(torch.load(r"../models/FEN.pth"))
 
@@ -119,7 +118,7 @@ uu1, uu2, uu3, uu4 = '', '', '', ''
 
 
 def hooku1(module, input, output):
-    '''获取某层'''
+
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -128,7 +127,7 @@ def hooku1(module, input, output):
 
 
 def hooku2(module, input, output):
-    '''获取某层'''
+  
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -137,7 +136,7 @@ def hooku2(module, input, output):
 
 
 def hooku3(module, input, output):
-    '''获取某层'''
+  
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
@@ -146,7 +145,7 @@ def hooku3(module, input, output):
 
 
 def hooku4(module, input, output):
-    '''获取某层'''
+ 
     # fig = plt.figure(figsize=(50    , 50))
     # fig.subplots_adjust(left=0, right=1, bottom=0, top=0.8, hspace=0, wspace=0.2)
     # print(output.shape)
